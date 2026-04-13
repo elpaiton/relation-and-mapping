@@ -66,4 +66,8 @@ public class UserService {
         String token = jwtUtils.generateToken(userDetailsService.loadUserByUsername(username));
         return new AuthResponse(token);
     }
+
+    public String hello() {
+        return "Hello, authenticated user!";
+    }
 }
