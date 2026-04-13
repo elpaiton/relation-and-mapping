@@ -80,4 +80,12 @@ public class UserService {
     public String hello() {
         return "Hello, authenticated user!";
     }
+
+    public String adminHello() {
+        return "Hello, admin user!";
+    }
+
+    public String userHello() {
+        return "Hello, regular user!";
+    }
 }
