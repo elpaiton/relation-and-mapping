@@ -6,6 +6,7 @@ import edu.co.ustavillavicencio.relationmapping.entities.UserApp;
 import edu.co.ustavillavicencio.relationmapping.exception.BusinessRuleException;
 import edu.co.ustavillavicencio.relationmapping.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,6 +17,7 @@ import java.util.regex.Pattern;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserService {
 
     private final UserRepository userRepository;
@@ -30,6 +32,7 @@ public class UserService {
                 .matcher(password)
                 .find();
 
+        log.info("Validando contraseña para el usuario '{}'", username);
 
         if (userRepository.findByUsername(username).isPresent()) {
             throw new BusinessRuleException("El usuario ya existe");
@@ -47,14 +50,13 @@ public class UserService {
             throw new BusinessRuleException("Rol no válido");
         }
 
-
-
         UserApp user = new UserApp();
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
         user.setRole(role);
 
         userRepository.save(user);
+        log.info("Usuario '{}' registrado exitosamente con el rol '{}'", username, role);
     }
 
     public AuthResponse login(String username, String password) {
@@ -65,6 +67,14 @@ public class UserService {
 
         String token = jwtUtils.generateToken(userDetailsService.loadUserByUsername(username));
         return new AuthResponse(token);
+
+    }
+    public String mora() {
+        return "Mora es un personaje de anime encantador y carismático que se destaca por su personalidad alegre y su habilidad para hacer reír a los demás. Es conocido por su sentido del humor y su capacidad para alegrar el día de quienes lo rodean, convirtiéndolo en un personaje querido por los fans del anime.";
+    }
+
+    public String bocchi() {
+        return "Bocchi es un personaje de anime adorable y talentoso que se destaca por su habilidad musical y su personalidad encantadora. Es conocida por su dedicación a la música y su capacidad para superar desafíos, lo que la convierte en un personaje inspirador y querido por los fans del anime.";
     }
 
     public String hello() {
