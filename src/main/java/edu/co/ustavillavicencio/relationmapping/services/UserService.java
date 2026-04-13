@@ -88,4 +88,8 @@ public class UserService {
     public String userHello() {
         return "Hello, regular user!";
     }
+
+    public  String goodBye() {
+        return "¡Adiós! Espero que tengas un excelente día. Si necesitas ayuda en el futuro, no dudes en volver. ¡Cuídate!";
+    }
 }
