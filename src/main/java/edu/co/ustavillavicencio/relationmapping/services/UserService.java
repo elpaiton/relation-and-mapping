@@ -76,4 +76,8 @@ public class UserService {
     public String bocchi() {
         return "Bocchi es un personaje de anime adorable y talentoso que se destaca por su habilidad musical y su personalidad encantadora. Es conocida por su dedicación a la música y su capacidad para superar desafíos, lo que la convierte en un personaje inspirador y querido por los fans del anime.";
     }
+
+    public  String goodBye() {
+        return "¡Adiós! Espero que tengas un excelente día. Si necesitas ayuda en el futuro, no dudes en volver. ¡Cuídate!";
+    }
 }
