@@ -69,27 +69,4 @@ public class UserService {
         return new AuthResponse(token);
 
     }
-    public String mora() {
-        return "Mora es un personaje de anime encantador y carismático que se destaca por su personalidad alegre y su habilidad para hacer reír a los demás. Es conocido por su sentido del humor y su capacidad para alegrar el día de quienes lo rodean, convirtiéndolo en un personaje querido por los fans del anime.";
-    }
-
-    public String bocchi() {
-        return "Bocchi es un personaje de anime adorable y talentoso que se destaca por su habilidad musical y su personalidad encantadora. Es conocida por su dedicación a la música y su capacidad para superar desafíos, lo que la convierte en un personaje inspirador y querido por los fans del anime.";
-    }
-
-    public String hello() {
-        return "Hello, authenticated user!";
-    }
-
-    public String adminHello() {
-        return "Hello, admin user!";
-    }
-
-    public String userHello() {
-        return "Hello, regular user!";
-    }
-
-    public  String goodBye() {
-        return "¡Adiós! Espero que tengas un excelente día. Si necesitas ayuda en el futuro, no dudes en volver. ¡Cuídate!";
-    }
 }
